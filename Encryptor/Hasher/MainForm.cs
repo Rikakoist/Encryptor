@@ -38,11 +38,19 @@ namespace Encryptor
             var SHA256Result = Encrypt.GetHash(StringInputTextBox.Text, 2);
             var SHA384Result = Encrypt.GetHash(StringInputTextBox.Text, 3);
             var SHA512Result = Encrypt.GetHash(StringInputTextBox.Text, 4);
-            HashResultTextBox.Text = "MD5: " + (MD5Result ?? "NULL") + "\r\n\r\n"
-                + "SHA1: " + (SHA1Result ?? "NULL") + "\r\n\r\n"
+            HashResultTextBox.Text = "MD5(Uppercase32): " + (MD5Result ?? "NULL") + "\r\n"
+                + "MD5(Lowercase32): " + (MD5Result.ToLower() ?? "NULL") + "\r\n"
+                + "MD5(Uppercase16): " + (MD5Result.Substring(8, 16) ?? "NULL") + "\r\n"
+                + "MD5(Lowercase16): " + (MD5Result.ToLower().Substring(8, 16) ?? "NULL") + "\r\n\r\n"
+                + "SHA1: " + (SHA1Result ?? "NULL") + "\r\n"
                 + "SHA256: " + (SHA256Result ?? "NULL") + "\r\n\r\n"
                 + "SHA384: " + (SHA384Result ?? "NULL") + "\r\n\r\n"
                 + "SHA512: " + (SHA512Result ?? "NULL");
+        }
+
+        private void FileHash(object sender, DragEventArgs e)
+        {
+
         }
     }
 }
